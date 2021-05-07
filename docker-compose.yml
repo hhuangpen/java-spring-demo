@@ -2,10 +2,12 @@ version: '3.7'
 
 services:
   currency-exchange:
-    image: currency-exchange-demo
+    build:
+      context: ./currency-exchange-service
+    image: currency-exchange-demo:0.02
     mem_limit: 700m
     ports:
-      - 8000:8000
+      - "8000:8000"
     networks:
       - currency-network
     depends_on:
@@ -14,7 +16,9 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://netflix-eureka-naming-server:8761/eureka
  
   currency-conversion:
-    image: currency-conversion-demo
+    build:
+      context: ./currency-conversion-service
+    image: currency-conversion-demo:0.02
     mem_limit: 700m
     ports:
       - "8100:8100"
@@ -26,6 +30,8 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://netflix-eureka-naming-server:8761/eureka
  
   api-gateway:
+    build:
+      context: ./netflix-zuul-api-gateway-server
     image: api-gateway-demo
     mem_limit: 700m
     ports:
@@ -39,6 +45,8 @@ services:
 
 
   netflix-eureka-naming-server:
+    build:
+      context: ./netflix-eureka-naming-server
     image: naming-server-demo
     mem_limit: 700m
     ports:
