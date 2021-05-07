@@ -32,7 +32,7 @@ services:
   api-gateway:
     build:
       context: ./netflix-zuul-api-gateway-server
-    image: api-gateway-demo
+    image: api-gateway-demo:0.02
     mem_limit: 700m
     ports:
       - "8765:8765"
@@ -47,7 +47,7 @@ services:
   netflix-eureka-naming-server:
     build:
       context: ./netflix-eureka-naming-server
-    image: naming-server-demo
+    image: naming-server-demo:0.02
     mem_limit: 700m
     ports:
       - "8761:8761"
