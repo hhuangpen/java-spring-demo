@@ -1,0 +1,3 @@
+# http://localhost:8765/{service-name}/{uri}
+
+http://localhost:8765/currency-exchange-service/currency-exchange/from/USD/to/TWD

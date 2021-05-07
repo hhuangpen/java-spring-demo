@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: netflix-zuul-api-gateway-server
+
+server:
+  port: 8765
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://netflix-eureka-naming-server:8761/eureka
+
+#zuul:
+#   ribbon:
+#      eager-load:
+#         enabled: true
